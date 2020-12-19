@@ -58,36 +58,6 @@ rviz rviz
 ```
 
 
-
-# Installing required packages:
-
-```
-sudo apt install python3-sympy  
-sudo apt install collada-urdf-tools -y
-sudo apt-get install python3-lxml python3-numpy python3-dateutil -y
-#
-#installing collada
-sudo apt-get update -y
-sudo apt install python3-pip -y
-pip3 install pycollada
-# you can also install:
-sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython ipython-notebook python3-pandas  python3-nose
-```
-
-Install xlrd module for python3 in order to read the .xlsx file provided by APSIM:
-```
-pip3 install xlrd
-```
-Install octomap:
-```
-sudo apt-get install ros-melodic-octomap
-sudo apt-get install ros-melodic-octomap-msgs
-sudo apt-get install ros-melodic-octomap-ros
-```
-This was helpful: https://darienmt.com/autonomous-flight/2018/11/15/installing-ethz-rotors.html
-
-
-
 # Learning Blender Scripting
 
 1. To copy model - ```Shift + D```
@@ -187,11 +157,35 @@ sudo apt-get install ros-melodic-octomap-ros
 ```
 
 
-# hector_quadrotor_tutorial
-Hector quadrotor with modified files
+# Installing required packages:
 
-Installed required packages
-# For Ubuntu 18
+```
+sudo apt install python3-sympy  
+sudo apt install collada-urdf-tools -y
+sudo apt-get install python3-lxml python3-numpy python3-dateutil -y
+#
+#installing collada
+sudo apt-get update -y
+sudo apt install python3-pip -y
+pip3 install pycollada
+# you can also install:
+sudo apt-get install python3-numpy python3-scipy python3-matplotlib ipython ipython-notebook python3-pandas  python3-nose
+```
+
+Install xlrd module for python3 in order to read the .xlsx file provided by APSIM:
+```
+pip3 install xlrd
+```
+Install octomap:
+```
+sudo apt-get install ros-melodic-octomap
+sudo apt-get install ros-melodic-octomap-msgs
+sudo apt-get install ros-melodic-octomap-ros
+```
+This was helpful: https://darienmt.com/autonomous-flight/2018/11/15/installing-ethz-rotors.html
+
+
+# Required packages for Ubuntu 18
 ```
 sudo apt install qt4-default
 
