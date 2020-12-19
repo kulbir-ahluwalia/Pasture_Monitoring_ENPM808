@@ -1,6 +1,64 @@
 # Pasture_Monitoring_ENPM808
 
-Install the following packages to run pasture_generation.py:
+# Making point clouds
+```zsh
+
+# in every new terminal do
+source ~/catkin_ws/devel/setup.zsh #or setup.bash if you're using bash
+#recommended to add this line in your .zshrc file
+
+# in first terminal (relaunch and close everytime when restarting the scripts):
+roscore
+# in second terminal
+roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
+# in third terminal
+rosrun point_cloud_processing transform_sim_and_save 
+
+# to concatenate clouds, create ~/Data/Pointcloud directory, then:
+rosrun point_cloud_processing concatenate_cloud <subdirectory name> <number of files>
+rosrun point_cloud_processing concatenate_cloud /home/ksa/Data/PointCloud/9-18-2020/unfiltered/ 236
+
+#controlling the quadcopter using teleop
+rosservice call /enable_motors "enable: true"
+rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
+
+#viewing the cloud
+rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concatenated_cloud.pcd
+
+```
+
+
+# Autonomous Navigation script
+```
+pip install rospkg
+pip3 install rospkg
+sudo apt-get install ros-melodic-teleop-twist-keyboard
+sudo apt-get install ros-melodic-teleop-twist-joy
+
+```
+
+```
+roscore
+roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
+rosrun hector_quadrotor_navigation quadrotor_navigation.py
+
+# Recording and playing rosbag files
+```
+#to record a rosbag file
+rosbag record -a
+
+#to play the rosbag file and see it in rviz
+#in first terminal
+rosparam set /use_sim_time "true"
+#toggle spacebar to play/pause the rosbag file
+rosbag play --pause -l --clock 2020-09-23-21-46-48.bag
+#in another terminal
+rviz rviz
+```
+
+
+
+Installing required packages:
 
 ```
 sudo apt install python3-sympy  
@@ -86,10 +144,6 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main
 ```
 Refer: https://forums.linuxmint.com/viewtopic.php?f=47&t=286659
 
-
-
-
-
 When trying to do catkin_make you might get the error:
 ```
 /home/ksa/catkin_ws/src/hector_quadrotor_tutorial/hector_moveit_gazebo_plugins/src/fruit_generator.cc: In member function ‘virtual void gazebo::FruitGenerator::Load(gazebo::physics::WorldPtr, sdf::ElementPtr)’:
@@ -166,55 +220,6 @@ libcurl: (51) SSL: no alternative certificate subject name matches target host n
 Follow the steps on: 
 https://varhowto.com/how-to-fix-libcurl-51-ssl-no-alternative-certificate-subject-name-matches-target-host-name-api-ignitionfuel-org-gazebo-ubuntu-ros-melodic/
 
-# Making point clouds
-```zsh
-
-# in every new terminal do
-source ~/catkin_ws/devel/setup.zsh #or setup.bash if you're using bash
-#recommended to add this line in your .zshrc file
-
-# in first terminal:
-roscore
-# in second terminal
-roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
-# in third terminal
-roslaunch point_cloud_processing sim_transform.launch 
-# in fourth terminal
-rosrun point_cloud_processing save_cloud
-#or
-rosrun point_cloud_processing transform_sim_and_save 
-
-# to concatenate clouds
-rosrun point_cloud_processing concatenate_cloud <subdirectory name> <number of files>
-rosrun point_cloud_processing concatenate_cloud /home/ksa/Data/PointCloud/9-18-2020/unfiltered/ 236
-
-#controlling the quadcopter
-rosservice call /enable_motors "enable: true"
-rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
-
-#viewing the cloud
-rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concatenated_cloud.pcd
-
-```
-
-
-# Autonomous Navigation script
-```
-pip install rospkg
-pip3 install rospkg
-sudo apt-get install ros-melodic-teleop-twist-keyboard
-sudo apt-get install ros-melodic-teleop-twist-joy
-
-```
-
-```
-roscore
-roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
-rosrun hector_quadrotor_navigation quadrotor_navigation.py
-
-
-
-#do not do roslaunch hector_quadrotor_demo cafe.launch
 
 # the following command launches moveit as well
 roslaunch hector_moveit_gazebo pasture.launch     
@@ -227,20 +232,6 @@ sudo add-apt-repository ppa:sweptlaser/python3-pcl
 sudo apt update
 sudo apt install python3-pcl
 ```
-# Recording and playing rosbag files
-```
-#to record a rosbag file
-rosbag record -a
-
-#to play the rosbag file and see it in rviz
-#in first terminal
-rosparam set /use_sim_time "true"
-#toggle spacebar to play/pause the rosbag file
-rosbag play --pause -l --clock 2020-09-23-21-46-48.bag
-#in another terminal
-rviz rviz
-```
-
 
 
 
@@ -248,11 +239,6 @@ rviz rviz
 Installing PCL1.9.1 under Ubuntu 18.04:
 Recommended to compile it yourself
 https://www.programmersought.com/article/5338520038/
-
-# Using the PS4 controller to control the quadcopter
-
-
-
 
 # Installing pcl dependencies
 
@@ -298,25 +284,6 @@ just follow the link above for further commands...
 
 ```
 
-
-# DroneBody not found error
-
-```
-[ERROR] [1600650400.794297166, 316.434000000]: Robot semantic description not found. Did you forget to define or remap '/robot_description_semantic'?
-[ INFO] [1600650400.795942937, 316.436000000]: Loading robot model 'quadrotor'...
-[ INFO] [1600650400.796035342, 316.436000000]: No root/virtual joint specified in SRDF. Assuming fixed joint
-[FATAL] [1600650400.850831323, 316.490000000]: Group 'DroneBody' was not found.
-terminate called after throwing an instance of 'std::runtime_error'
-  what():  Group 'DroneBody' was not found.
-[hector_navigator-2] process has died [pid 14128, exit code -6, cmd /home/ksa/catkin_ws/devel/lib/hector_moveit_navigation/hector_navigator __name:=hector_navigator __log:=/home/ksa/.ros/log/e17ae0b2-fba5-11ea-91ca-e454e856a08c/hector_navigator-2.log].
-log file: /home/ksa/.ros/log/e17ae0b2-fba5-11ea-91ca-e454e856a08c/hector_navigator-2*.log
-```
-
-
-```
-
-
-```
 
 
 
