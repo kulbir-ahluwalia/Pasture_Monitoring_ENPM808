@@ -216,7 +216,7 @@ Follow the steps on:
 https://varhowto.com/how-to-fix-libcurl-51-ssl-no-alternative-certificate-subject-name-matches-target-host-name-api-ignitionfuel-org-gazebo-ubuntu-ros-melodic/
 
 
-# the following command launches moveit as well
+# If MoveIt is required, use:
 roslaunch hector_moveit_gazebo pasture.launch     
 roslaunch hector_moveit_navigation navigate.launch
 rosrun hector_moveit_navigation navigator_client
