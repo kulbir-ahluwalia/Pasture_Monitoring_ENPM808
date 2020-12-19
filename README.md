@@ -41,6 +41,7 @@ sudo apt-get install ros-melodic-teleop-twist-joy
 roscore
 roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
 rosrun hector_quadrotor_navigation quadrotor_navigation.py
+```
 
 # Recording and playing rosbag files
 ```
@@ -58,7 +59,7 @@ rviz rviz
 
 
 
-Installing required packages:
+# Installing required packages:
 
 ```
 sudo apt install python3-sympy  
