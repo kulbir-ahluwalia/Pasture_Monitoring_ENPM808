@@ -29,6 +29,7 @@ rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concat
 
 
 # Autonomous Navigation script
+Install required packages:
 ```
 pip install rospkg
 pip3 install rospkg
@@ -36,7 +37,7 @@ sudo apt-get install ros-melodic-teleop-twist-keyboard
 sudo apt-get install ros-melodic-teleop-twist-joy
 
 ```
-
+Launching the script:
 ```
 roscore
 roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
@@ -44,6 +45,7 @@ rosrun hector_quadrotor_navigation quadrotor_navigation.py
 ```
 
 # Recording and playing rosbag files
+You can record the messages being published on all topics and view them later in Rviz(ROS Visualization) using:
 ```
 #to record a rosbag file
 rosbag record -a
@@ -79,12 +81,12 @@ Choose your version from the drop down list at: https://snapcraft.io/blender
 sudo snap install blender --classic
 ```
  
-# Reinstallig Blender 
+
+# If MoveIt is required, use:
 ```
-sudo snap remove blender
-sudo apt-get purge teamviewer
-wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb
-sudo apt install -y ./teamviewer_amd64.deb
+roslaunch hector_moveit_gazebo pasture.launch     
+roslaunch hector_moveit_navigation navigate.launch
+rosrun hector_moveit_navigation navigator_client
 ```
 
 # Solving errors
@@ -215,11 +217,6 @@ libcurl: (51) SSL: no alternative certificate subject name matches target host n
 Follow the steps on: 
 https://varhowto.com/how-to-fix-libcurl-51-ssl-no-alternative-certificate-subject-name-matches-target-host-name-api-ignitionfuel-org-gazebo-ubuntu-ros-melodic/
 
-
-# If MoveIt is required, use:
-roslaunch hector_moveit_gazebo pasture.launch     
-roslaunch hector_moveit_navigation navigate.launch
-rosrun hector_moveit_navigation navigator_client
 
 # Installing pcl in Ubuntu 18
 
