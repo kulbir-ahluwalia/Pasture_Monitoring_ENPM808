@@ -129,10 +129,12 @@ When trying to do catkin_make you might get the error:
                       ^~~~~~
 
 ```
-
+Use the command: 
+```
 sudo apt install ros-melodic-libfranka ros-melodic-franka-ros
+```
 
-
+If you get the error:
 ```
 CMake Error at /opt/ros/melodic/share/catkin/cmake/catkinConfig.cmake:83 (find_package):
   Could not find a package configuration file provided by "moveit_core" with
@@ -150,13 +152,6 @@ Call Stack (most recent call first):
   
 ```
 do ```sudo apt-get install ros-melodic-moveit*```
-
-
-```
-sudo apt-get install ros-melodic-octomap
-sudo apt-get install ros-melodic-octomap-msgs
-sudo apt-get install ros-melodic-octomap-ros
-```
 
 
 # Installing required packages:
