@@ -1,5 +1,5 @@
 # Pasture_Monitoring_ENPM808
-
+Use the following commands to run the gazebo simulation and save the point clouds using the hector quadcopter in Ubuntu 18:
 # Making point clouds
 ```zsh
 
