@@ -37,6 +37,15 @@ rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concat
 
 ```
 
+# Processing point clouds
+```
+rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_all_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
+
+rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
+
+rosrun point_cloud_processing turfgrass_heights /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_10.2m_crop_box_filtered.pcd /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_12m_crop_box_filtered.pcd
+
+```
 
 # Autonomous Navigation script
 Install required packages:
