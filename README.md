@@ -45,6 +45,9 @@ rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_M
 
 rosrun point_cloud_processing turfgrass_heights /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_10.2m_crop_box_filtered.pcd /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_12m_crop_box_filtered.pcd
 
+rosrun point_cloud_processing plot_heights plot_only_params.txt same_height_concatenated_cloud_crop_box_filtered_all.pcd
+
+
 ```
 
 # Autonomous Navigation script
