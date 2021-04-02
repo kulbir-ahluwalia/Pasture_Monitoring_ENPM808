@@ -32,6 +32,10 @@ rosrun point_cloud_processing concatenate_cloud /home/ksa/Data/PointCloud/9-18-2
 rosservice call /enable_motors "enable: true"
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
 
+# using autonomous navigation script
+rosrun hector_quadrotor_navigation quadrotor_navigation_spawn_directly.py
+
+
 #viewing the cloud
 rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concatenated_cloud.pcd
 
@@ -39,8 +43,10 @@ rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concat
 
 # Processing point clouds
 ```
+#to use crop box filter on the point cloud for plot + 1m on each side
 rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_all_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
 
+#for plot only so +0.1m on each side
 rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
 
 rosrun point_cloud_processing turfgrass_heights /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_10.2m_crop_box_filtered.pcd /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_12m_crop_box_filtered.pcd
