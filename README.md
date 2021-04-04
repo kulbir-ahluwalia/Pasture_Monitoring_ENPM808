@@ -43,11 +43,17 @@ rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concat
 
 # Processing point clouds
 ```
-#to use crop box filter on the point cloud for plot + 1m on each side
+#to use crop box filter on the point cloud for plot + 2m on each side to get plot_all
 rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_all_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
 
-#for plot only so +0.1m on each side
+#for plot only so +0.2m on each side
 rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
+
+# for generating max_heights_point_cloud and csv files of points with height greater than mean+4*std_dev
+rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/day91_april1_2009/april_1_day91_raw_concatenated_cloud_crop_box_filtered.pcd
+
+rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights <plot_only_params> <plot_all_crop_box_filtered_point_cloud>
+
 
 rosrun point_cloud_processing turfgrass_heights /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_10.2m_crop_box_filtered.pcd /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture_12m_crop_box_filtered.pcd
 
