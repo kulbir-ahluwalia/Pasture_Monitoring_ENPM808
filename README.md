@@ -50,7 +50,9 @@ rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_M
 rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
 
 # for generating max_heights_point_cloud and csv files of points with height greater than mean+4*std_dev
-rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/day91_april1_2009/april_1_day91_raw_concatenated_cloud_crop_box_filtered.pcd
+rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights <plot_only_params.txt>  <plot_till_2m_padding.pcd>
+
+/home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_only_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/day91_april1_2009/april_1_day91_raw_concatenated_cloud_crop_box_filtered.pcd
 
 rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights <plot_only_params> <plot_all_crop_box_filtered_point_cloud>
 
