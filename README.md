@@ -44,10 +44,10 @@ rosrun point_cloud_processing view_single_cloud /home/ksa/Data/PointCloud/concat
 # Processing point clouds
 ```
 #to use crop box filter on the point cloud for plot + 2m on each side to get plot_all
-rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/plot_all_params.txt /home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/pasture.pcd
+rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_Monitoring/Patch_generation_pipeline1April/Python_scripts/plot_all_params.txt <raw_concatenated_pcd>
 
 # for generating max_heights_point_cloud and csv files of points with height greater than mean+4*std_dev
-rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights <plot_only_params.txt>  <plot_till_2m_padding.pcd>
+rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights /home/ksa/Desktop/Pasture_Monitoring/Patch_generation_pipeline1April/Python_scripts/plot_only_params.txt  <plot_till_2m_padding.pcd>
 
 #plot_all path
 /home/ksa/Desktop/Pasture_Monitoring/Patch_generation_pipeline1April/Python_scripts/plot_all_params.txt
