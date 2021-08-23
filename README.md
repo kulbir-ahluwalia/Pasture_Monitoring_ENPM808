@@ -20,6 +20,7 @@ source ~/catkin_ws/devel/setup.zsh #or setup.bash if you're using bash
 # in first terminal (relaunch and close everytime when restarting the scripts):
 roscore
 # in second terminal
+## it takes about 28GB RAM (gzserver) to load the gazebo simulation, turn the GUI to false so that it loads up quicker in about 35 minutes:
 roslaunch hector_quadrotor_demo pasture_and_quadcopter.launch
 # in third terminal
 rosrun point_cloud_processing transform_sim_and_save 
