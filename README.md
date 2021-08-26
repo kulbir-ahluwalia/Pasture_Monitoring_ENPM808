@@ -51,6 +51,8 @@ rosrun point_cloud_processing single_crop_box_filter /home/ksa/Desktop/Pasture_M
 # for generating max_heights_point_cloud and csv files of points with height greater than mean+4*std_dev
 rosrun point_cloud_processing plot_heights_std_dev_filter_with_max_heights /home/ksa/Desktop/Pasture_Monitoring/Patch_generation_pipeline1April/Python_scripts/plot_only_params.txt  <plot_till_2m_padding.pcd>
 
+- All files are generated at the path "/home/ksa/Desktop/Pasture_Monitoring/pcd_to_heights/test_pcd/"
+
 #plot_all path
 /home/ksa/Desktop/Pasture_Monitoring/Patch_generation_pipeline1April/Python_scripts/plot_all_params.txt
 
