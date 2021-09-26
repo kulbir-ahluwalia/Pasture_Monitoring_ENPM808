@@ -233,6 +233,7 @@ This was helpful: https://darienmt.com/autonomous-flight/2018/11/15/installing-e
 # Required packages for Ubuntu 18
 ```
 sudo apt install qt4-default
+sudo apt-get install ros-melodic-moveit
 
 sudo apt-get install ros-melodic-moveit ros-melodic-velodyne-gazebo-plugins ros-melodic-geographic-info ros-melodic-geographic-msgs ros-melodic-ros-control ros-melodic-hardware-interface ros-melodic-controller-interface ros-melodic-gazebo-ros-control ros-melodic-joy ros-melodic-teleop-twist-keyboard
 
